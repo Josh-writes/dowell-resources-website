@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dowell Resources</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<script>
+    window.onload = function () {
+        // Trust message rotator
+        const trustMessages = [
+            "13+ Years of Global Export Experience",
+            "Serving Clients Across Europe, North America & Asia",
+            "Logistics Expertise with Stock at Tianjin & Huangpu Ports",
+            "Trusted Supplier of Ferro Alloys",
+            "We Deliver to All Major International Ports",
+            "Long-Term Partnerships with Top Producers Across China"
+        ];
+
+        let trustIndex = 0;
+        const trustText = document.getElementById("trust-text");
+
+        setInterval(() => {
+            trustIndex = (trustIndex + 1) % trustMessages.length;
+            trustText.textContent = trustMessages[trustIndex];
+        }, 3000);
+        
+        
+    };
+</script>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="images/dowell-logo-white.png" alt="Dowell Resources Logo" class="logo">
+
+            <div class="header-message">
+                <h2>Precision. Quality. Reliability.</h2>
+                <p>Worldwide Supplier of Premium Ferro Alloys</p>
+            </div>
+            
+            <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav id="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Products</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="intro">
+        <h2>Welcome to Dowell Resources</h2>
+        <p>Dowell Resources is a reliable exporter of high-quality metals and ferroalloys, trusted by global industries since 2012. With a strong supplier network across China and stocked ports in Tianjin and Huangpu, we deliver precision, quality, and reliability every time.</p>
+        <p><a href="about.html">Learn more about our company &rarr;</a></p>
+        <p>For sales inquiries, contact &rarr; <a href="mailto:info@dowellresources.com">info@dowellresources.com</a></p>
+    </section>
+       
+    <div class="trust-scroller">
+        <p id="trust-text">13+ Years of Global Export Experience</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2012 Dowell Resources Co., Limited</p>
+        <p>For sales inquiries, contact <a href="mailto:info@dowellresources.com">info@dowellresources.com</a></p>
+    </footer>
+	<script src="navigation.js?v=1.1"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dowell Resources</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="images/dowell-logo-white.png" alt="Dowell Resources Logo" class="logo">
+
+            <div class="header-message">
+                <h2>Precision. Quality. Reliability.</h2>
+                <p>Worldwide Supplier of Premium Ferro Alloys</p>
+            </div>
+            
+            <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav id="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Products</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+	   
+   <section id="gallery">
+		<div class="slideshow-container">
+			<span class="prev">&#10094;</span>
+			<img id="slideshow-image" src="images/home_gallery/img1.jpg" alt="Gallery Image">
+			<span class="next">&#10095;</span>
+		</div>
+	</section>
+
+	<script>
+		const images = [
+			"images/home_gallery/img1.jpg",
+			"images/home_gallery/img2.jpg",
+			"images/home_gallery/img3.jpg",
+			"images/home_gallery/img4.jpg",
+			"images/home_gallery/img5.jpg",
+			"images/home_gallery/img6.jpg",
+			"images/home_gallery/img7.jpg",
+			"images/home_gallery/img8.jpg",
+			"images/home_gallery/img9.jpg"
+		];
+
+		let currentIndex = 0;
+		const slideshowImage = document.getElementById("slideshow-image");
+
+		document.querySelector(".prev").onclick = () => {
+			currentIndex = (currentIndex - 1 + images.length) % images.length;
+			slideshowImage.src = images[currentIndex];
+		};
+
+		document.querySelector(".next").onclick = () => {
+			currentIndex = (currentIndex + 1) % images.length;
+			slideshowImage.src = images[currentIndex];
+		};
+	</script>
+
+
+    <footer>
+		<p>&copy; 2012 Dowell Resources Co., Limited</p>
+		<p>For sales inquiries, contact <a href="mailto:info@dowellresources.com">info@dowellresources.com</a></p>
+	</footer>
+	<script src="navigation.js?v=1.1"></script>
+</body>
+</html>

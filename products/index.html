@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Dowell Resources</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Product-specific styles */
+        .product-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .product-card h3 {
+            margin: 0 0 10px 0;
+            color: #003366;
+        }
+
+        .product-card .icon {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: #003366;
+            transition: transform 0.3s ease;
+        }
+
+        .product-description {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, margin 0.5s ease, padding 0.5s ease;
+            background-color: #f8f8f8;
+            border-radius: 0 0 4px 4px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+            margin-top: 0;
+            padding: 0 15px;
+        }
+
+        .product-description.active {
+            max-height: 500px; /* Adjust based on content needs */
+            margin-top: 15px;
+            padding: 15px;
+        }
+
+        .product-specs {
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .product-specs h4 {
+            margin: 0 0 10px 0;
+            color: #003366;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .spec-table th, .spec-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .spec-table th {
+            background-color: #f2f2f2;
+        }
+
+        /* For mobile responsiveness */
+        @media only screen and (max-width: 768px) {
+            .product-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="images/dowell-logo-white.png" alt="Dowell Resources Logo" class="logo">
+
+            <div class="header-message">
+                <h2>Precision. Quality. Reliability.</h2>
+                <p>Worldwide Supplier of Premium Ferro Alloys</p>
+            </div>
+            
+            <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav id="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Products</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <h2>Our Products</h2>
+        <p>Click on any product to view detailed specifications and information</p>
+        
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-container">
+                <div class="product-card" onclick="toggleDescription('manganese')">
+                    <h3>Manganese Metal</h3>
+                    <i class="fas fa-chevron-down icon" id="icon-manganese"></i>
+                </div>
+                <div class="product-description" id="desc-manganese">
+                    <p>Electrolytic Manganese Metal is a high-purity additive used in steel production to improve hardness and wear resistance. Our premium Mn metal features low impurities and consistent quality.</p>
+                    
+                    <div class="product-specs">
+                        <h4>Specifications:</h4>
+                        <table class="spec-table">
+                            <tr>
+                                <th>Element</th>
+                                <th>Content</th>
+                            </tr>
+                            <tr>
+                                <td>Mn</td>
+                                <td>≥99.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Fe</td>
+                                <td>≤0.05%</td>
+                            </tr>
+                            <tr>
+                                <td>C</td>
+                                <td>≤0.04%</td>
+                            </tr>
+                            <tr>
+                                <td>P</td>
+                                <td>≤0.005%</td>
+                            </tr>
+                            <tr>
+                                <td>S</td>
+                                <td>≤0.05%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p><strong>Applications:</strong> Stainless steel production, aluminum alloys, electronics</p>
+                    <p><strong>Packaging:</strong> 1MT/wooden pallet, 25kg/bag, or as requested</p>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-container">
+                <div class="product-card" onclick="toggleDescription('ferrosilicon')">
+                    <h3>Ferro Silicon</h3>
+                    <i class="fas fa-chevron-down icon" id="icon-ferrosilicon"></i>
+                </div>
+                <div class="product-description" id="desc-ferrosilicon">
+                    <p>Ferro Silicon is an essential ferroalloy used as a deoxidizer and alloying element in steel production. Our FeSi offers consistent chemistry and size distribution for optimal performance.</p>
+                    
+                    <div class="product-specs">
+                        <h4>Specifications:</h4>
+                        <table class="spec-table">
+                            <tr>
+                                <th>Grade</th>
+                                <th>Si</th>
+                                <th>Al</th>
+                                <th>C</th>
+                                <th>S</th>
+                                <th>P</th>
+                            </tr>
+                            <tr>
+                                <td>FeSi75</td>
+                                <td>74-79%</td>
+                                <td>≤2.0%</td>
+                                <td>≤0.2%</td>
+                                <td>≤0.02%</td>
+                                <td>≤0.04%</td>
+                            </tr>
+                            <tr>
+                                <td>FeSi72</td>
+                                <td>70-75%</td>
+                                <td>≤2.0%</td>
+                                <td>≤0.2%</td>
+                                <td>≤0.02%</td>
+                                <td>≤0.04%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p><strong>Size:</strong> 10-100mm, 10-50mm, or as requested</p>
+                    <p><strong>Applications:</strong> Steel deoxidation, alloy production, cast iron</p>
+                    <p><strong>Packaging:</strong> 1MT Big Bags or as requested</p>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-container">
+                <div class="product-card" onclick="toggleDescription('magnesium')">
+                    <h3>Magnesium Ingot, Granules</h3>
+                    <i class="fas fa-chevron-down icon" id="icon-magnesium"></i>
+                </div>
+                <div class="product-description" id="desc-magnesium">
+                    <p>Our high-purity Magnesium products are available as ingots for foundry applications and granules for desulfurization. Lightweight and highly reactive, our Mg products meet international quality standards.</p>
+                    
+                    <div class="product-specs">
+                        <h4>Specifications:</h4>
+                        <table class="spec-table">
+                            <tr>
+                                <th>Grade</th>
+                                <th>Mg</th>
+                                <th>Al</th>
+                                <th>Fe</th>
+                                <th>Si</th>
+                                <th>Cu</th>
+                            </tr>
+                            <tr>
+                                <td>Pure Mg 99.9%</td>
+                                <td>≥99.9%</td>
+                                <td>≤0.01%</td>
+                                <td>≤0.01%</td>
+                                <td>≤0.01%</td>
+                                <td>≤0.01%</td>
+                            </tr>
+                            <tr>
+                                <td>Pure Mg 99.95%</td>
+                                <td>≥99.95%</td>
+                                <td>≤0.005%</td>
+                                <td>≤0.005%</td>
+                                <td>≤0.005%</td>
+                                <td>≤0.005%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p><strong>Forms:</strong> Ingots (7.5kg standard), Granules (5-90mm)</p>
+                    <p><strong>Applications:</strong> Steel desulfurization, nodularizing, alloy production</p>
+                    <p><strong>Packaging:</strong> Ingots in wooden pallets, granules in steel drums</p>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-container">
+                <div class="product-card" onclick="toggleDescription('simetal')">
+                    <h3>Si Metal 553#, 441#</h3>
+                    <i class="fas fa-chevron-down icon" id="icon-simetal"></i>
+                </div>
+                <div class="product-description" id="desc-simetal">
+                    <p>Silicon Metal is a key material for aluminum alloys, silicones, and semiconductors. Our grades 553# and 441# provide high purity with controlled impurity levels for consistent performance.</p>
+                    
+                    <div class="product-specs">
+                        <h4>Specifications:</h4>
+                        <table class="spec-table">
+                            <tr>
+                                <th>Grade</th>
+                                <th>Si</th>
+                                <th>Fe</th>
+                                <th>Al</th>
+                                <th>Ca</th>
+                                <th>C</th>
+                            </tr>
+                            <tr>
+                                <td>553#</td>
+                                <td>≥99.5%</td>
+                                <td>≤0.5%</td>
+                                <td>≤0.5%</td>
+                                <td>≤0.3%</td>
+                                <td>≤0.2%</td>
+                            </tr>
+                            <tr>
+                                <td>441#</td>
+                                <td>≥99.4%</td>
+                                <td>≤0.4%</td>
+                                <td>≤0.4%</td>
+                                <td>≤0.1%</td>
+                                <td>≤0.2%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p><strong>Size:</strong> 10-100mm, or as requested</p>
+                    <p><strong>Applications:</strong> Aluminum alloys, silicones, solar industry</p>
+                    <p><strong>Packaging:</strong> 1MT Big Bags or 25kg bags on pallets</p>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-container">
+                <div class="product-card" onclick="toggleDescription('sic')">
+                    <h3>Silicon Carbide</h3>
+                    <i class="fas fa-chevron-down icon" id="icon-sic"></i>
+                </div>
+                <div class="product-description" id="desc-sic">
+                    <p>Silicon Carbide is a compound of silicon and carbon with excellent hardness, thermal conductivity, and chemical resistance. We provide metallurgical and abrasive grades for diverse applications.</p>
+                    
+                    <div class="product-specs">
+                        <h4>Specifications (Metallurgical Grade):</h4>
+                        <table class="spec-table">
+                            <tr>
+                                <th>Grade</th>
+                                <th>SiC</th>
+                                <th>Fe</th>
+                                <th>Free C</th>
+                                <th>Size</th>
+                            </tr>
+                            <tr>
+                                <td>SiC 90%</td>
+                                <td>≥90%</td>
+                                <td>≤0.8%</td>
+                                <td>≤0.5%</td>
+                                <td>1-10mm</td>
+                            </tr>
+                            <tr>
+                                <td>SiC 88%</td>
+                                <td>≥88%</td>
+                                <td>≤1.0%</td>
+                                <td>≤0.8%</td>
+                                <td>1-10mm</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p><strong>Applications:</strong> Steel deoxidization, abrasives, refractories</p>
+                    <p><strong>Packaging:</strong> 1MT Big Bags or 25kg bags</p>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-container">
+                <div class="product-card" onclick="toggleDescription('lcfecr')">
+                    <h3>Low Carbon Ferro Chrome</h3>
+                    <i class="fas fa-chevron-down icon" id="icon-lcfecr"></i>
+                </div>
+                <div class="product-description" id="desc-lcfecr">
+                    <p>Low Carbon Ferro Chrome is crucial for stainless steel production, providing chromium with minimal carbon content. Our LC FeCr offers excellent dissolution rates and consistent chemistry.</p>
+                    
+                    <div class="product-specs">
+                        <h4>Specifications:</h4>
+                        <table class="spec-table">
+                            <tr>
+                                <th>Grade</th>
+                                <th>Cr</th>
+                                <th>C</th>
+                                <th>Si</th>
+                                <th>P</th>
+                                <th>S</th>
+                            </tr>
+                            <tr>
+                                <td>LC FeCr 0.1%C</td>
+                                <td>60-65%</td>
+                                <td>≤0.1%</td>
+                                <td>≤1.5%</td>
+                                <td>≤0.03%</td>
+                                <td>≤0.03%</td>
+                            </tr>
+                            <tr>
+                                <td>LC FeCr 0.05%C</td>
+                                <td>60-65%</td>
+                                <td>≤0.05%</td>
+                                <td>≤1.5%</td>
+                                <td>≤0.03%</td>
+                                <td>≤0.03%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p><strong>Size:</strong> 10-50mm, or as requested</p>
+                    <p><strong>Applications:</strong> Stainless steel, special alloys</p>
+                    <p><strong>Packaging:</strong> 1MT Big Bags or 100kg steel drums</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2012 Dowell Resources Co., Limited</p>
+        <p>For sales inquiries, contact <a href="mailto:info@dowellresources.com">info@dowellresources.com</a></p>
+    </footer>
+    
+    <script src="navigation.js?v=1.1"></script>
+    <script>
+        let activeDescription = null;
+        
+        function toggleDescription(productId) {
+            const descElement = document.getElementById('desc-' + productId);
+            const iconElement = document.getElementById('icon-' + productId);
+            
+            // If there's already an active description and it's not the one we clicked
+            if (activeDescription && activeDescription !== descElement) {
+                // Close the currently open description
+                activeDescription.classList.remove('active');
+                
+                // Reset the icon for the previously active description
+                const prevIconId = activeDescription.id.replace('desc-', 'icon-');
+                const prevIcon = document.getElementById(prevIconId);
+                if (prevIcon) {
+                    prevIcon.style.transform = 'rotate(0deg)';
+                }
+            }
+            
+            // Toggle the clicked description
+            descElement.classList.toggle('active');
+            
+            // Rotate the icon
+            if (descElement.classList.contains('active')) {
+                iconElement.style.transform = 'rotate(180deg)';
+                activeDescription = descElement;
+            } else {
+                iconElement.style.transform = 'rotate(0deg)';
+                activeDescription = null;
+            }
+        }
+    </script>
+</body>
+</html>
